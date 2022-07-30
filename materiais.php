@@ -32,11 +32,11 @@
                     // Nome
                     echo "<label for='nomeUni_$i'> Nome: </label>";
                     echo "<input type='text' name='nomeUni_$i' id='nomeUni_$i' maxlenght='30' size='15' required> <br>";
+       
+                    // Preço                                                        
+                    echo "<label for='precoUni_$i'> Preço: </label>";
+                    echo "<input type='number' name='precoUni_$i' id='precoUni_$i' min='0' size='2' required> ";    
 
-                    // Quantidade comprada
-                    echo "<label for='compradaUni_$i'> Quantidade comprada: </label>";
-                    echo "<input type='number' name='compradaUni_$i' id='compradaUni_$i' min='0' size='2' required> <br>";    
-                    
                     // Quantidade usada
                     echo "<label for='usadoUni_$i'> Quantidade usada: </label>";
                     echo "<input type='number' name='usadoUni_$i' id='usadoUni_$i' min='0' size='2' required>";
@@ -54,14 +54,13 @@
                     echo "<label for='nomeComp_$i'> Nome: </label>";
                     echo "<input type='text' name='nomeComp_$i' id='nomeComp_$i' maxlenght='30' size='15' required> <br>";
 
-                    // Quantidade comprada
-                    echo "<label for='compradaComp_$i'> Quantidade comprada: </label>";
-                    echo "<input type='number' name='compradaComp_$i' id='compradaComp_$i' min='0' size='2' required> ";    
-                    echo "<select name='tipoComp_comprada_$i'>";
+                    // Preço
+                    echo "<label for='precoComp_$i'> Preço: </label>";
+                    echo "<input type='number' name='precoComp_$i' id='precoComp_$i' min='0' size='2' required> ";    
+                    echo "<select name='tipoComp_preco_$i'>";
                     echo "<option value='cm'> cm </option>";
                     echo "<option value='m'> m </option>";
                     echo "</select>  <br>";
-
 
                     // Quantidade usada
                     echo "<label for='usadoComp_$i'> Quantidade usada: </label>";
@@ -76,6 +75,13 @@
         ?>
 
         <br>
+
+        <!-- nome da peça -->
+        <input type="hidden" name="nome" value="<?php echo $nome ?>">
+        <input type="hidden" name="uni" value="<?php echo $uni ?>">
+        <input type="hidden" name="comp" value="<?php echo $comp ?>">
+        
+        <!-- botoes -->
         <input type="submit" value="terminar"> <input type="reset" value="apagar dados">
     </form>
 
