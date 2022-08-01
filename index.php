@@ -14,9 +14,19 @@
                 <!-- Nome da peça -->
                 <label for="nome"> Nome: </label>
                 <input type="text" name="nome" id="nome" maxlength="30" required> <br>
+                
+                <!-- tempo -->
+                <label for="tempo"> Horas gastas: </label>
+                <input type="number" name="tempo" id="tempo" min="1" value="10" size="1"> 
+                <label for="precoTempo"> Preço por hora: </label>
+                <input type="number" name="precoTempo" id="precoTempo" min="0" value="1" size="1" > <br>
+
+                <!-- Lucro -->
+                <label for="lucro"> Margem de lucro: </label>
+                <input type="number" name="lucro" id="lucro" min="0" value="5" size="1">% <br>
 
                 <!-- Quantidade de materiais -->
-                <h4>Quantidade de materiais: </h4>
+                <h5>Quantidade de materiais: </h5>
                 <label for="uni"> Por <strong>unidades</strong>: </label>
                 <input type="number" name="uni" id="uni" size="2" max="50" min="0" value="0"> <br>
 

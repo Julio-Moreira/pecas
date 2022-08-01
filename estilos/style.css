@@ -12,3 +12,8 @@ section {
     box-shadow: 0.5px 0.5px 30px #505050;
     border-radius: 20px;
 }
+
+#final {
+    border-style: none;
+    width: 10px;
+}
