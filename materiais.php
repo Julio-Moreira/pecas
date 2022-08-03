@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="estilos/style.css">
+    <link rel="shortcut icon" href="icones/favicon.png" type="image/x-icon">
     <title>Materiais</title>
 </head>
 <body>
@@ -17,58 +18,61 @@
         $comp = htmlspecialchars($_GET['comp'] ?? 1);
     ?>
     
-    <section>
+    <main>
     <h1>Coloque os materiais usados na peça <?php echo $nome ?>: </h1>
     <form action="resultado.php" method="POST">
         <?php 
+            echo ($comp == 0 && $uni == 0) 
+            ? "Por favor coloque em algum dos tipos de materiais ao menos 1 material <br> <a href='index.php'> voltar </a>" 
+            : "";
+
             // Unidades
             if ($uni > 0) {
-                echo "<h3> Materiais por unidades: </h3>";
+                echo ($comp > 0) ? "<h3> Materiais por unidades: </h3>" : '';
 
                 for ($i=0; $i < $uni ; $i++) { 
-                    // Separador
-                    echo "<hr>";
+                    echo ($i > 0) ? "<hr>" : ''; // Separador
 
                     // Nome
-                    echo "<label for='nomeUni_$i'> Nome: </label>";
-                    echo "<input type='text' name='nomeUni_$i' id='nomeUni_$i' maxlenght='30' size='15' required> <br>";
+                    echo "<label for='nomeUni_$i'> Nome: </label>
+                    <input type='text' name='nomeUni_$i' id='nomeUni_$i' maxlenght='30' size='15' required> <br> ";
        
                     // Preço                                                        
-                    echo "<label for='precoUni_$i'> Preço: </label>";
-                    echo "<input type='number' name='precoUni_$i' id='precoUni_$i' min='0' size='2' step='0.1' required> ";    
+                    echo "<label for='precoUni_$i'> Preço: </label>
+                    <input type='number' name='precoUni_$i' id='precoUni_$i' min='0' size='2' step='0.1' required> ";    
 
                     // Quantidade usada
-                    echo "<label for='usadoUni_$i'> Quantidade usada: </label>";
-                    echo "<input type='number' name='usadoUni_$i' id='usadoUni_$i' min='0' size='2' required>";
+                    echo "<label for='usadoUni_$i'> Quantidade usada: </label>
+                    <input type='number' name='usadoUni_$i' id='usadoUni_$i' min='0' size='2' step='0.1' required> ";
                 }
             }
 
             // Comprimentos
             if ($comp > 0) {
-                echo "<h3> Materiais por comprimento: </h3>";
+                echo ($uni > 0) ? "<h3> Materiais por comprimento: </h3>" : "";
 
                 for ($i=0; $i < $comp; $i++) { 
-                    echo "<hr>";
+                    echo ($i > 0) ? "<hr>" : ""; // separador
 
                     // Nome
-                    echo "<label for='nomeComp_$i'> Nome: </label>";
-                    echo "<input type='text' name='nomeComp_$i' id='nomeComp_$i' maxlenght='30' size='15' required> <br>";
+                    echo "<label for='nomeComp_$i'> Nome: </label>
+                    <input type='text' name='nomeComp_$i' id='nomeComp_$i' maxlenght='30' size='15' required> <br>";
 
                     // Preço
-                    echo "<label for='precoComp_$i'> Preço: </label>";
-                    echo "<input type='number' name='precoComp_$i' id='precoComp_$i' min='0' size='2' step='0.1' required> ";    
-                    echo "<select name='tipoComp_preco_$i'>";
-                    echo "<option value='cm'> cm </option>";
-                    echo "<option value='m'> m </option>";
-                    echo "</select>  <br>";
+                    echo "<label for='precoComp_$i'> Preço: </label>
+                    <input type='number' name='precoComp_$i' id='precoComp_$i' min='0' size='2' step='0.1' required>     
+                    <select name='tipoComp_preco_$i'>
+                        <option value='cm'> cm </option>
+                        <option value='m'> m </option>
+                    </select>  <br> ";
 
                     // Quantidade usada
-                    echo "<label for='usadoComp_$i'> Quantidade usada: </label>";
-                    echo "<input type='number' name='usadoComp_$i' id='usadoComp_$i' min='0' size='2' required> ";
-                    echo "<select name='tipoComp_usada_$i'>";
-                    echo "<option value='cm'> cm </option>";
-                    echo "<option value='m'> m </option>";
-                    echo "</select>  <br>";
+                    echo "<label for='usadoComp_$i'> Quantidade usada: </label>
+                    <input type='number' name='usadoComp_$i' id='usadoComp_$i' min='0' size='2' step='0.1' required> 
+                    <select name='tipoComp_usada_$i'>
+                        <option value='cm'> cm </option>
+                        <option value='m'> m </option>
+                    </select>  <br> ";
                 }
             }
 
@@ -76,7 +80,7 @@
 
         <br>
 
-        <!-- info da peça -->
+        <!-- infos da peça -->
         <input type="hidden" name="nome" value="<?php echo $nome ?>">
         <input type="hidden" name="uni" value="<?php echo $uni ?>">
         <input type="hidden" name="comp" value="<?php echo $comp ?>">
@@ -88,6 +92,12 @@
         <input type="submit" value="terminar"> <input type="reset" value="apagar dados">
     </form>
 
-    </section>
+    </main>
+
+    <footer>
+        Desenvolvido por: <strong>Julio C. Moreira</strong> (2022) <br>
+        <a target="_blank" href="https://icons8.com/icon/bIkUnVRhKQXH/cloth">Cloth</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a> <br>
+        <a href="https://www.github.com/Julio-Moreira/pecas">Codigo fonte</a>
+    </footer>
 </body>
 </html>

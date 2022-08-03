@@ -5,10 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="estilos/style.css">
+    <link rel="shortcut icon" href="icones/favicon.png" type="image/x-icon">
     <title>Peças</title>
 </head>
 <body>
-    <section>
+    <main>
         <h1> Coloque as informações da peça nas caixas abaixo: </h1>
             <form action="materiais.php" method="get">
                 <!-- Nome da peça -->
@@ -36,6 +37,12 @@
                 <!-- Submit -->
                 <input type="submit" value="avançar"> <input type="reset" value="apagar dados">
             </form>
-    </section>
+    </main>
+
+    <footer>
+        Desenvolvido por: <strong>Julio C. Moreira</strong> (2022) <br>
+        <a target="_blank" href="https://icons8.com/icon/bIkUnVRhKQXH/cloth">Cloth</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a> <br>
+        <a href="https://www.github.com/Julio-Moreira/pecas" target="_blank">Codigo fonte</a>
+    </footer>
 </body>
 </html>
